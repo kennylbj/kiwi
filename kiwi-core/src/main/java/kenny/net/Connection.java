@@ -268,7 +268,8 @@ public class Connection extends AbstractEventHandler {
                 // but reading length is 0
                 handleClose(channel);
             } else {
-                handleError(channel);
+                //Some connection may only connect without data
+                //handleError(channel);
             }
 
         } catch (IOException e) {
