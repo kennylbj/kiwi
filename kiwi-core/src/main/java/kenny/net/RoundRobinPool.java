@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
  * Single thread access guarantee
  */
 @NotThreadSafe
+//TODO extends?
 public class RoundRobinPool<T extends EventLoop> implements EventLoopPool {
     private final List<T> loops = Lists.newLinkedList();
     private final EventLoop basicLoop;

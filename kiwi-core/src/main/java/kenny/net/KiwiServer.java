@@ -85,10 +85,6 @@ public class KiwiServer {
                 connection.setConnectFinishCallback(connectFinishCallback);
                 //TODO acceptEstablished with acceptCallback
                 ioLoop.runInLoop(connection::connectEstablished);
-                boolean isChannelRead = (acceptChannel.validOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ;
-                System.out.println("After accept " + System.identityHashCode(acceptChannel) + " valid is read : " + isChannelRead);
-
-
             });
         }
 

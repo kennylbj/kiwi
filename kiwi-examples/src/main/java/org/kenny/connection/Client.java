@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * Created by fishdicks on 22/02/2017.
+ * Created by kennylbj on 22/02/2017.
  */
 public class Client {
     private static final int SOCKET_NUM = 2048;

@@ -32,13 +32,12 @@ public class NIOEventLoop extends EventLoop {
         // doWait(timeout), which in fact is implemented by selector.select(timeout), and it will
         // wake up, if other threads wake it up, it meets the timeout, one channel is selected, or
         // the current thread is interrupted.
-        int events;
         try {
             if (nextTimeoutIntervalMs > 0) {
                 // The select will take the timeout in unit of milli-seconds
-                events = selector.select(nextTimeoutIntervalMs);
+                selector.select(nextTimeoutIntervalMs);
             } else {
-                events = selector.selectNow();
+                selector.selectNow();
             }
         } catch (IOException e) {
             LOG.info("Select failed.", e);
@@ -135,7 +134,6 @@ public class NIOEventLoop extends EventLoop {
             throws ClosedChannelException {
         assert channel.keyFor(selector) == null
                 || (channel.keyFor(selector).interestOps() & SelectionKey.OP_CONNECT) == 0;
-        System.out.println("begin to register read");
         addInterest(channel, SelectionKey.OP_READ, callback);
     }
 
@@ -212,7 +210,6 @@ public class NIOEventLoop extends EventLoop {
             throws ClosedChannelException {
         SelectionKey key = channel.keyFor(selector);
         if (key == null) {
-            System.out.println("register with " + operation + " " + callback);
             channel.register(selector, operation, callback);
         } else if (!key.isValid()) {
             throw new RuntimeException(

@@ -62,7 +62,7 @@ public abstract class EventLoop {
     }
 
     public TimerId runEvery(Runnable r, long interval) {
-        return timer.runAfter(r, interval);
+        return timer.runEvery(r, interval);
     }
 
     public void cancelTimer(TimerId timerId) {

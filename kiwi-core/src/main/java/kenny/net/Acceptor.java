@@ -61,8 +61,6 @@ public class Acceptor extends AbstractEventHandler {
                     acceptCallback.onAccept(socketChannel);
                     // Finish accept
                     boolean isChannelRead = (socketChannel.validOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ;
-                    System.out.println("After accept " + System.identityHashCode(socketChannel) + " valid is read : " + isChannelRead);
-
                 } else {
                     //nothing to do here, so we need to close connection.
                     socketChannel.close();
