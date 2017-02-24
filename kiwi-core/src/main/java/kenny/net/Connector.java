@@ -76,6 +76,7 @@ public class Connector extends AbstractEventHandler {
         checkState(channel == connectChannel);
         loop.assertInLoopThread();
         try {
+
             if (channel.finishConnect()) {
                 // If we finishConnect(), we have to unregisterConnect, otherwise there will be a bug
                 // http://bugs.java.com/bugdatabase/view_bug.do?bug_id=4960791

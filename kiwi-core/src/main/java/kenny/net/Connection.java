@@ -216,6 +216,7 @@ public class Connection extends AbstractEventHandler {
             try {
                 //TODO how many buffer should I write?
                 while (!outputBuffer.isEmpty()) {
+                    //System.out.println("output queue size: " + outputBuffer.size());
                     ByteBuffer buffer = checkNotNull(outputBuffer.peek());
                     channel.write(buffer);
                     if (buffer.hasRemaining()) {
