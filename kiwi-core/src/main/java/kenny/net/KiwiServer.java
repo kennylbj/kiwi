@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @ThreadSafe
 public class KiwiServer {
     private final static Logger LOG = LoggerFactory.getLogger(KiwiServer.class);
-    private final NIOEventLoop loop;
+    private final NIOEventLoop loop;    // Accept loop
     private final String name;
     private final String host;
     private final int port;

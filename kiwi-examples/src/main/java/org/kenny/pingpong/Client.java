@@ -5,6 +5,5 @@ package org.kenny.pingpong;
  */
 public class Client {
     public static void main(String[] args) {
-
     }
 }
